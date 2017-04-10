@@ -62,6 +62,8 @@ void deletenodevalue(struct node **head,int value)
 		*head = temp->next;
 		free(temp);
 	}
+	if(temp == NULL || temp->data != value)
+		return;
 	else
 	{
 		while(temp != NULL && temp->data != value)
@@ -86,10 +88,13 @@ void deletenodeposition(struct node **head,int position)
 		*head = temp->next;
 		free(temp);
 	}
+	
 	for(i=0; temp!=NULL && i<position-1;i++)
 	{
 		temp = temp->next;
 	}
+	if(temp == NULL || temp->next == NULL)
+	       return;	
 	nodeafterpos = temp->next->next;
 	free(temp->next);
 	temp->next = nodeafterpos;
@@ -99,9 +104,21 @@ void printlist(struct node *node)
 {
 	while(node != NULL)
 	{
-		printf("%d->",node->data);
+		printf("%d -> ",node->data);
 		node = node->next;
 	}
+}
+
+int noofelements(struct node *head)
+{
+	int count=0;
+	while(head != NULL)
+	{
+		head = head->next;
+		count++;
+	}
+	printf("%d\n",count);
+	return count;
 }
 int main()
 {
@@ -113,33 +130,43 @@ int main()
 	while(1)
 	{
 		printf("Select a valid option:\n");
-		printf("1.Insert element in start.\n2.Insert element at end.\n3.Insert after given node.\n4.Delete a node with given value.\n5.Delete a node at a given position.\n6.Print list.\n7.Exit.\n");
+		printf("1.Insert element in start.\n2.Insert element at end.\n3.Insert after given node.\n4.Delete a node with given value.\n5.Delete a node at a given position.\n6.Print list.\n7.No. of elements.\n8.Exit.\n");
 		scanf("%d",&choice);
+		printf("\n");
 		switch(choice)
 		{
 			case 1: printf("Enter element to insert.\n");
 				scanf("%d",&element);
+				printf("\n");
 				insertbegin(&head,element);
 				break;
 			case 2: printf("Enter element to insert.\n");
 				scanf("%d",&element);
+				printf("\n");
 				insertend(&head,element);
 				break;
 				//		case 3: printf("Enter a node.\n");
 			case 4: printf("Enter a value:\n");
 				scanf("%d",&element);
+				printf("\n");
 				deletenodevalue(&head,element);
 				break;
 			case 5: printf("Enter a position:\n");
 				scanf("%d",&element);
+				printf("\n");
 				deletenodeposition(&head,element);
 				break;
 			case 6: printlist(head);
+				printf("\n\n");
+				break;
+			case 7: noofelements(head);
 				printf("\n");
 				break;
-			case 7: break;
+			case 8: printf("Exiting....\n");
+				break;
+			default: printf("Enter a valid option.\n");
 		}
-		if(choice == 7)
+		if(choice == 8)
 		{
 			break;
 		}
