@@ -52,13 +52,20 @@ long long int lcm(long long int *num1,long long int *num2)
 	return answer;
 }
 
+long long int factorial(long long int *num1)
+{
+	long long int answer = 1,i;
+	for(i=2;i<=*num1;i++)
+	{
+		answer = (answer % 10000007) * (i % 10000007);
+	}
+	return answer;
+}
+
 int main()
 {
-	long long int num1 = 10;
+	long long int num1 = 100;
 	long long int num2 = 5;
 	long long int answer;
 	long long int ans;
-	answer = GCD(&num1,&num2);
-	ans = lcm(&num1,&num2);
-	cout << answer << endl << ans << endl;
 }
