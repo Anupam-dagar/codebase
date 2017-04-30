@@ -22,7 +22,7 @@ long long int multiply(long long int *num1,long long int *num2)
 	return answer;
 }
 
-double divide(long long int *num1,long long int *num2)
+double divide(double *num1,double *num2)
 {
 	double answer;
 	answer = (double)*num1 / (double)*num2;
@@ -64,9 +64,10 @@ long long int factorial(long long int *num1)
 
 int main()
 {
-	long long int num1 = 100;
-	long long int num2 = 5;
+	long long int num1;
+	long long int num2;
 	long long int answer;
+	double n1,n2;
 	double ans;
 	int input;
 	cout << "Welcome to Large Values Calculator\n";
@@ -103,11 +104,11 @@ int main()
 				cout << answer << endl << endl;
 				break;
 			case 4: cout << "Enter number one:\n";
-				cin >> num1;
+				cin >> n1;
 				cout << "Enter number two:\n";
-				cin >> num2;
+				cin >> n2;
 				cout << endl;
-				ans = divide(&num1,&num2);
+				ans = divide(&n1,&n2);
 				cout << ans << endl << endl;
 				break;
 			case 5: cout << "Enter number one:\n";
