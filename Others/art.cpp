@@ -96,7 +96,7 @@ void two()
 			}
 		}
 		else 
-			cout << "(______\n";
+			cout << " (______\n";
 
 	}
 }
@@ -105,25 +105,25 @@ void two()
 void three()
 {
 	int i,j;
-	for(i=0;i<4;i++)
-	{
+	for(i=0;i<7;i++)
+	{ if(i==0||i==3||i==6)
+	  {
+	  	for(j=0;j<4;j++)
 		cout << "__";
-	}
-	cout << endl;
-	for(i=0;i<4;i++)
-	{
-		for(j=0;j<6;j++)
-		{
-			if(j)
-			cout << "  ";
-		}
-	}
+      }
+      else
+	   cout<<"        |";
+       if(i!=5||i!=2)
+       cout<<endl;
+       
+   }
+	
 }
 
 int main()
 {
-	int n,i,j,d = 175;
-	cout << "enter 0,1 or 2\n";
+	int n,i,j;
+	cout << "Enter 0,1,2 or 3\n";
 	cin >> n;
 	switch(n)
 	{
@@ -133,7 +133,9 @@ int main()
 			break;
 		case 2: two();
 			break;
-		default:cout << "enter a valid input\n";
+		case 3:three();
+			break;
+		default:cout << "Enter a valid input\n";
 	}
 	return 0;
 }
