@@ -29,6 +29,13 @@ double divide(double *num1,double *num2)
 	return answer;
 }
 
+long long int Pct(long long int *num1,long long int *num2)
+{
+	long long int answer;
+	answer = (long long int)*num1 *100.00/ (long long int )*num2;
+	return answer;
+}
+
 long long int GCD(long long int *num1,long long int *num2)
 {
 	long long int answer;
@@ -111,12 +118,12 @@ int main()
 				ans = divide(&n1,&n2);
 				cout << ans << endl << endl;
 				break;
-			case 5: cout << "Enter number one:\n";
+			case 5:	cout << "Enter number one:\n";
 				cin >> num1;
 				cout << "Enter number two:\n";
 				cin >> num2;
 				cout << endl;
-				answer = GCD(&num1,&num2);
+				answer = Pct(&num1,&num2);
 				cout << answer << endl << endl;
 				break;
 			case 6: cout << "Enter number one:\n";
@@ -124,15 +131,23 @@ int main()
 				cout << "Enter number two:\n";
 				cin >> num2;
 				cout << endl;
+				answer = GCD(&num1,&num2);
+				cout << answer << endl << endl;
+				break;
+			case 7: cout << "Enter number one:\n";
+				cin >> num1;
+				cout << "Enter number two:\n";
+				cin >> num2;
+				cout << endl;
 				answer = lcm(&num1,&num2);
 				cout << answer << endl << endl;	
-			case 7: cout << "Enter number\n";
+			case 8: cout << "Enter number\n";
 				cin >> num1;
 				cout << endl;
 				answer = factorial(&num1);
 				cout << answer << endl << endl;
 				break;
-			case 8: cout << "Exiting...\n";
+			case 9: cout << "Exiting...\n";
 				break;
 			default:cout << "Enter a valid input.\n";
 		}
